@@ -1,6 +1,6 @@
 import React ,{Component} from 'react';
 //내가 빠트린게 있을 때 자동으로 작성하도록 팝업창을 띄워 알려주도록 함, 
-//import PromTypes from 'prop-type';
+//import PropTypes from 'prop-type';
 //터치시 눌리는 효과를 주는 컴포넌트 
 import {TouchableOpacity} from 'react-native';
 import {FontAwesome, Ionicons} from '@expo/vector-icons';
