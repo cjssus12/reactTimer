@@ -1,14 +1,12 @@
-//import
+// import 
 
-
-//Actions
+// Actions definition
 const START_TIMER = "START_TIMER";
 const RESTART_TIMER = "RESTART_TIMER";
 const ADD_SECOND = "ADD_SECOND";
 
-//Action Creators
-
-function startTimer() {
+// Action's creators
+function startTimer(){
     return {
         type: START_TIMER
     };
@@ -20,36 +18,41 @@ function restartTimer() {
     };
 }
 
-function addSecond() {
+function addSecond(){
     return {
         type: ADD_SECOND
     };
 }
-//Reducer
 
-const TIMER_DURATION = 1500;
+// Reducer
+const TIMER_DURATION = 1500;    // 25*60
 
-const initialState = {
-    isPlaying: false,
-    elapsedTime: 0,
-    timerDuration: TIMER_DURATION
+const initialState={
+    isPlaying:false,
+    elapsedTime:0,
+    timeDuration:TIMER_DURATION
 };
 
-function reducer(state = initialState, action) {
-    switch (action.type) {
-        case START_TIMER:
+// Reducer's functions
+function reducer(state=initialState, action) {
+    switch (action.type){
+        case START_TIMER :
             return applyStartTimer(state, action);
-        case RESTART_TIMER:
+
+        case RESTART_TIMER :
             return applyRestartTimer(state, action);
-        case ADD_SECOND:
+
+        case ADD_SECOND :
             return applyAddSecond(state, action);
-        default:
+        
+        default :
             return state;
     }
 }
 
-//Reducer Functions
-function applyStartTimer(state, action) {
+// Action's creators
+
+function applyStartTimer(state, action){
     return {
         ...state,
         isPlaying: true,
@@ -57,7 +60,7 @@ function applyStartTimer(state, action) {
     };
 }
 
-function applyRestartTimer(state, action) {
+function applyRestartTimer(state, action){
     return {
         ...state,
         isPlaying: false,
@@ -65,28 +68,29 @@ function applyRestartTimer(state, action) {
     };
 }
 
-function applyAddSecond(state, action) {
-    const { elapsedTime } = state;
-    if (elapsedTime < TIMER_DURATION) {
+function applyAddSecond(state, action){
+    const {elapsedTime} = state;
+
+    if(elapsedTime < TIMER_DURATION) {
         return {
             ...state,
             elapsedTime: elapsedTime + 1
         };
-    } else {
+    }
+    else {
         return {
             ...state,
             isPlaying: false
-        };
+        }
     }
 }
-//Export Action Creactors
+
+//Export Action Creators
 const actionCreators = {
     startTimer,
     restartTimer,
     addSecond
-};
-export { actionCreators };
+}
 
-//Default
-
+export {actionCreators};
 export default reducer;

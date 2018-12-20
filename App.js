@@ -1,9 +1,9 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { Provider } from "react-redux";
-import { createStore } from "redux";
-import reducer from "./reducer";
-import Timer from "./components/Timer";
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+import reducer from './reducer';
+import Timer from './components/Timer';
 
 let store = createStore(reducer);
 
@@ -14,16 +14,16 @@ export default class App extends React.Component {
     return (
       <Provider store={store}>
         <Timer />
-      </Provider>
+      </Provider> 
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
+  container : {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: 'center'
   }
 });
